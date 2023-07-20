@@ -1,0 +1,28 @@
+﻿@model List<CasgemRapidApi.Models.ImdbMovieListWiewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+
+<h3>Imdb Listesi</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <td>#</td>
+        <td>Film Adı</td>
+        <td>Film Puanı</td>
+        <td>Film Yılı</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@item.rank</td>
+            <td>@item.title</td>
+            <td>@item.rating</td>
+            <td>@item.year</td>
+        </tr>
+    }
+</table>
+

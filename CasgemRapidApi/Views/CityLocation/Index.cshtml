@@ -1,0 +1,35 @@
+﻿@model List<CasgemRapidApi.Models.LocationCityNameViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int count = 0;
+}
+
+<h1>@ViewBag.CityName</h1>
+
+<form method="get">
+    <div class="input-group mb-3 border">
+        <input type="text" name="cityName" class="form-control text-black" placeholder="Şehir Adını Girin">
+    </div>
+    <button class="btn btn-success">Getir</button>
+</form>
+
+<br />
+<h3>@ViewBag.CityName</h3>
+<hr />
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>#</td>
+        <td>Location</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.dest_id</td>
+        </tr>
+    }
+</table>

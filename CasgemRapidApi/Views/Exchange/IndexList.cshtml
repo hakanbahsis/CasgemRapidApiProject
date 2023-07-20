@@ -1,0 +1,35 @@
+﻿@model List<CasgemRapidApi.Models.ExchangeViewModel.Exchange_Rates>
+
+@{
+    ViewData["Title"] = "IndexList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+
+<form method="get">
+    <div class="input-group mb-3 border">
+        <input type="text" name="a" class="form-control text-black" placeholder="Döviz Kuru">
+    </div>
+    <button class="btn btn-success">Getir</button>
+</form>
+<br />
+<h3>@ViewBag.a Pariteleri</h3>
+<hr />
+
+<table class="table table-bordered">
+    <tr>
+        <td>#</td>
+        <td>Döviz</td>
+        <td>Miktar</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.currency</td>
+            <td>@item.exchange_rate_buy</td>
+
+        </tr>
+    }
+</table>

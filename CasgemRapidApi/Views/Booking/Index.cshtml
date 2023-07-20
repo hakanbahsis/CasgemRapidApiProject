@@ -1,0 +1,59 @@
+﻿@model List<HotelListViewModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+
+<div class="row text-center">
+    <h1>Hotel Ara</h1>
+</div>
+
+<hr />
+<form method="get">
+    <div class="row border-3 mt-2">
+        <div class="col-6 mb-2">
+            <input type="text" name="adult" class="form-control" placeholder="Yetişkin Sayısı" />
+        </div>
+        <div class="col-6 mb-2">
+            <input type="text" name="child" class="form-control" placeholder="Çocuk Sayısı" />
+        </div>
+        <div class="col-6 mb-2">
+            <input type="text" name="checkindate" class="form-control" placeholder="Giriş Tarihi" />
+        </div>
+        <div class="col-6 mb-2">
+            <input type="text" name="checkoutdate" class="form-control" placeholder="Çıkış Tarihi" />
+        </div>
+        <div class="col-6 mb-2">
+            <input type="text" name="roomnumber" class="form-control" placeholder="Oda Sayısı" />
+        </div>
+        <div class="col-6 mb-2">
+            <input type="text" name="cityId" class="form-control" placeholder="Şehir Id" />
+        </div>
+        <button class="btn btn-primary">Hotel Ara </button>
+    </div>
+</form>
+
+<br />
+<h3>Pariteleri</h3>
+<hr />
+
+<table class="table table-bordered">
+    <tr>
+        <td>#</td>
+        <td>id</td>
+        <td>name</td>
+        <td>rewiewscore</td>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.reviewScore</td>
+        </tr>
+    }
+</table>
